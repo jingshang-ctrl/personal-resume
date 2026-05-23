@@ -215,6 +215,7 @@ export default function App() {
         <div className="hidden md:flex gap-8 items-center">
           {[
             { label: '关于我', id: 'about' },
+            { label: '品牌宣言', id: 'manifesto' },
             { label: '核心经历', id: 'experience' },
             { label: '成功案例', id: 'work' },
             { label: '核心技能', id: 'skills' },
@@ -346,6 +347,37 @@ export default function App() {
                 我目前专注于基于Obsidian和Claude Code构建医美医生的数字化大脑，全方位提升医生的医疗专业力、销售话术沉淀及个人IP影响力。同时，我致力于扶持医生创作原创医疗技术原理，并在自媒体端实现精准引爆。
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Brand Manifesto */}
+        <section id="manifesto" className="py-24 border-y border-brand-border">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <p className="text-sm uppercase tracking-[0.3em] text-white/30 font-bold text-center">
+              品牌宣言
+            </p>
+            <blockquote className="text-2xl md:text-3xl lg:text-4xl font-display text-white leading-relaxed text-center space-y-6">
+              <p>
+                一个<span className="italic text-white/60">不肯待在盒子里</span>的人。
+              </p>
+              <p className="text-white/80">
+                7 年临床深耕学会了一件事——<span className="text-white">面部分层解剖</span>。
+                <br className="hidden md:block" />
+                跨界 AI 后又学会另一件——<span className="text-white">把知识变成系统</span>。
+              </p>
+              <p className="text-white/50 text-xl md:text-2xl font-normal">
+                大多数医生不写代码，大多数程序员不懂解剖。
+                <br />
+                我站在交叉点上，用<span className="text-white">医学专业深度</span> × <span className="text-white">AI 工程能力</span> × <span className="text-white">内容审美洁癖</span>，
+                <br />
+                把"医美行业 AI 化"从一句口号变成<span className="text-white">可交付的产品</span>。
+              </p>
+              <p className="text-white/40 text-lg md:text-xl font-normal pt-4">
+                不是让自己一个人出名，而是让<span className="text-white">每一个医美医生</span>都拥有自己的 AI 系统 + 自媒体阵地。
+                <br />
+                用专业建立 IP，用技术放大价值。
+              </p>
+            </blockquote>
           </div>
         </section>
 
