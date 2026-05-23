@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python \"C:\\\\Users\\\\13290\\\\.claude\\\\skills\\\\git-push\\\\scripts\\\\push_to_github.py\" --path \"C:\\\\Users\\\\13290\\\\Desktop\\\\黄庆---个人简历\" --name \"personal-resume\" --no-push)"
+    ]
+  }
+}
