@@ -304,7 +304,7 @@ export default function App() {
           >
             <div className="aspect-[3/4.5] w-full max-w-sm ml-auto rounded-[40px] overflow-hidden border border-white/10 hover:border-brand-primary/30 transition-all duration-700 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
               <img 
-                src="/profile.jpg" 
+                src={`${import.meta.env.BASE_URL}profile.jpg`}
                 alt={user.name} 
                 className="w-full h-full object-cover object-center scale-105 group-hover:scale-100 transition-transform duration-1000"
               />
