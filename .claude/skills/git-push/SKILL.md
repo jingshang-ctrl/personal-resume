@@ -43,6 +43,7 @@ git commit -m "<message>"
    - **JSX 中必须用 `import.meta.env.BASE_URL`**：Vite 不会自动给 JSX 里的绝对路径加 base 前缀。硬编码 `/profile.jpg` 在 dev 正常，但生产环境实际请求的是 `域名/profile.jpg`（缺少 `/personal-resume/` 前缀），导致 404。
    - 正确写法：`` src={`${import.meta.env.BASE_URL}profile.jpg`} ``
 2. **检查文件存在**：确认引用的文件确实在 `public/` 目录中。
+3. **检查外部图片 URL**：扫描代码中所有外部图片链接（如 Unsplash、Pexels、Imgur 等），这些 CDN 在国内大概率被墙，导致图片加载失败。应替换为本地资源（放入 `public/`）或使用 CSS 渐变/图标作为视觉替代。
 
 ### Step 5：推送到 GitHub
 

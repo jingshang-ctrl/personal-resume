@@ -5,14 +5,14 @@
 
 import { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { 
-  Github, 
-  Linkedin, 
-  Twitter, 
-  Mail, 
-  Phone, 
-  MapPin, 
-  ExternalLink, 
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+  ExternalLink,
   Download,
   Briefcase,
   GraduationCap,
@@ -20,7 +20,10 @@ import {
   ArrowUpRight,
   Menu,
   X,
-  Languages
+  Languages,
+  Sparkles,
+  Database,
+  Lightbulb
 } from 'lucide-react';
 
 // --- Types ---
@@ -39,6 +42,7 @@ interface Project {
   description: string;
   link: string;
   image?: string;
+  icon: string;
 }
 
 // --- Components ---
@@ -89,7 +93,10 @@ const ExperienceItem = ({ exp }: { exp: Experience }) => (
   </motion.div>
 );
 
-const ProjectCard = ({ project }: { project: Project }) => (
+const ProjectCard = ({ project }: { project: Project }) => {
+  const IconComponent = project.icon === 'sparkles' ? Sparkles : project.icon === 'database' ? Database : Lightbulb;
+
+  return (
   <motion.a
     href={project.link}
     target="_blank"
@@ -97,6 +104,10 @@ const ProjectCard = ({ project }: { project: Project }) => (
     whileHover={{ y: -8 }}
     className="group block relative aspect-[4/5] bg-brand-card border border-brand-border rounded-3xl overflow-hidden"
   >
+    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent z-0" />
+    <div className="absolute inset-0 flex items-center justify-center z-0 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-700">
+      <IconComponent className="w-full h-full p-16" />
+    </div>
     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
     {project.image && (
       <img src={project.image} alt={project.title} className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" />
@@ -112,7 +123,7 @@ const ProjectCard = ({ project }: { project: Project }) => (
       </p>
     </div>
   </motion.a>
-);
+)};
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -174,21 +185,21 @@ export default function App() {
         category: "创始人 | 第一自媒体系统",
         description: "医美行业首个 AI 自媒体内容系统，帮助医美机构/医生批量生产高保真专业内容。",
         link: "#",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
+        icon: "sparkles"
       },
       {
         title: "医美医生知识库",
         category: "创始人 | 数字化赋能",
         description: "基于 Obsidian + Claude Code 搭建，实现医疗专业、销售能力、个人 IP 三合一赋能。",
         link: "#",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
+        icon: "database"
       },
       {
         title: "医生 IP 原创计划",
         category: "发起人 | 专业影响力",
         description: "扶持医美医生原创医疗技术原理内容，助力建立自媒体端的专业权威与信任资产。",
         link: "#",
-        image: "https://images.unsplash.com/photo-1576091160550-2173dad99a01?auto=format&fit=crop&q=80&w=800"
+        icon: "lightbulb"
       }
     ],
     skills: ["AI内容工作流", "Claude Code", "Obsidian知识库", "临床医学", "面诊设计", "IP人设打造", "自媒体操盘"]
